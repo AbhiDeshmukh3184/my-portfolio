@@ -1,0 +1,57 @@
+
+<mat-toolbar color="primary" class="top-bar">
+  <span class="heading">
+    {{'Header.portfolio ADMIN' | translate}} - {{currentUser.agentId}}
+  </span>
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button class="masterButton ml-2" mat-stroked-button routerLink="./master"
+    *ngIf="(currentUser.isUser == 'Admin' || currentUser.aggregatorType == 'NCC')">
+    <span style="margin-top:5px">
+      {{ 'Header.Master' | translate }}
+    </span>
+  </button>
+
+  <div fxFlex fxLayoutAlign="flex-end center">
+  </div>
+  <div>
+    <span class="support-contact">Agribid Technical Support Number - 022 6971 9417</span>
+  </div>
+  <button mat-button [matMenuTriggerFor]="animals">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #animals="matMenu" style="margin-top: 5px;">
+    <button mat-menu-item [matMenuTriggerFor]="profile">Profile</button>
+    <button mat-menu-item [matMenuTriggerFor]="project">Switch Project</button>
+    <button mat-menu-item [matMenuTriggerFor]="invertebrates">Language</button>
+    <button mat-menu-item color="warn" (click)="logout()" class="logout_button">
+      {{ 'Header.Logout' | translate }}</button> 
+  </mat-menu>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item>{{currentUser.agentName}}</button>
+  </mat-menu>
+  <mat-menu #project="matMenu">
+    <button mat-menu-item (click)="selectedTab('Inventory')">{{ 'Header.Inventory' | translate }}</button>
+    <button mat-menu-item (click)="selectedTab('Procurement')">{{ 'Header.Procurement' | translate }}</button>
+    <button mat-menu-item (click)="selectedTab('portfolio Sales')">{{ 'Login.Sale' | translate }}</button>
+  </mat-menu>
+  
+  <mat-menu #invertebrates="matMenu">
+    <button mat-menu-item *ngFor="let lan of allLanguages">
+    <span (click)="selectedLanguage($event)" [value]="lan.code">{{ lan.language }} / {{ lan.code }}</span>
+  </button>
+  </mat-menu>
+  <!--  -->
+</mat-toolbar>
+<mat-sidenav-container >
+  <mat-sidenav #sidenav mode="side" [opened]="opened">
+    <mat-nav-list style="overflow-x: hidden; padding-right: 12px;" >
+      <app-menu-list-item *ngFor="let item of mainmenu; let i = index" [item]="item" [statusLink]='statusLink'>
+      </app-menu-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

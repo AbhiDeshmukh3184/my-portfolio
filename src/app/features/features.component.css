@@ -1,0 +1,313 @@
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 96 vh;
+
+}
+
+mat-sidenav-container,
+mat-sidenav-content {
+  height: 94vh;
+  background: #dadada;
+}
+
+
+
+::ng-deep .mat-menu-content {
+  max-height: 300px;
+}
+
+.heading {
+  font-size: 17px;
+}
+
+.mat-sidenav {
+  width: 228px;
+  box-shadow: 2px 0px 10px 3px #a2a2a2;
+  padding: 4px 10px 35px 10px;
+  margin: 5px 0px 0px 5px;
+  border-radius: 10px;
+}
+
+button.menu-button {
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.top-bar {
+  height: 45px;
+  background-color: #5d87ff;
+  color: white;
+}
+
+.marq {
+  font-size: 14px;
+  padding: 5px;
+  letter-spacing: 0.2px;
+  color: red;
+  font-weight: 400;
+}
+
+.minitop-bar {
+  height: 28px;
+  background-color: aliceblue;
+}
+
+::-webkit-scrollbar {
+  width: 0px !important;
+  background: transparent !important;
+  /* make scrollbar transparent */
+}
+
+.fill-remaining-space {
+  padding-left: 1%;
+  cursor: pointer;
+}
+
+.log_button {
+  cursor: pointer;
+  padding: 0px 15px;
+  height: 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-right: 40px !important;
+  margin-left: 10px !important;
+}
+
+.logout_button {
+  cursor: pointer;
+  background-color: #e63d399e;
+  color: white;
+}
+
+.logout_button:hover {
+  background-color: red !important;
+  color: white;
+}
+
+.masterButton {
+  border: 1px #245cff !important;
+  background: #245cff !important;
+  color: white !important;
+  border-style: outset !important;
+}
+
+.masterButton:hover {
+  border: 2px !important;
+  background: #5d87ff !important;
+  border-style: inset !important;
+}
+
+mat-icon {
+  margin: 0px !important
+}
+
+.menu-button {
+  margin-left: 10px;
+}
+
+.heading {
+  font-size: 16px;
+  letter-spacing: 0.4px;
+}
+
+/*<-------------------- language css ---------------------> */
+
+.popup-container {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.45);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: right;
+  align-items: center;
+  z-index: 1000;
+
+}
+
+.popup-content {
+  background-color: rgb(255, 255, 255) !important;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.221);
+  z-index: 1100;
+  border-radius: 5px;
+  width: auto;
+  /* margin-right: 35px;
+  margin-bottom: 140px; */
+  margin-right: 18px;
+  margin-bottom: 300px;
+}
+
+.popup-container.visible {
+  display: flex;
+}
+
+
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #0F4FA0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-icon {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+
+.lang {
+  color: rgb(20, 20, 20) !important;
+  font-size: 13px;
+}
+
+.lang:hover {
+  color: #0F4FA0 !important;
+
+}
+
+
+.popup-container a {
+  text-transform: uppercase;
+  padding: 0px 14px;
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  border-top: 1px white !important;
+  cursor: pointer;
+
+}
+
+
+.popup-container a:hover {
+  color: #fff805;
+  background-color: transparent
+}
+
+.SL {
+  color: #131313;
+  text-align: left !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+  .popup-container {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+
+  }
+
+  .popup-container.visible {
+    display: flex !important;
+  }
+
+  .popup-content {
+    background-color: rgb(255, 255, 255) !important;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
+    border-radius: 5px;
+    width: 85% !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 40% !important;
+  font-size: 13px !important;
+  height: 32px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .mat-menu-content {
+  padding-top: 8px;
+  padding-bottom: 0px !important;
+}
+
+.support-contact {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: white;
+  cursor: pointer;
+}

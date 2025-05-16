@@ -1,0 +1,585 @@
+/* @import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css'; */
+/*Necessary for Quill*/
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+html {
+  height: 100%;
+}
+
+::ng-deep body {
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 300;
+  margin: 0;
+  height: 100%;
+}
+
+section {
+  padding: 6px 10px 0px 18px
+}
+
+.section2 {
+  padding: 10px 15px 5px 15px
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary {
+  background-color: #5d87ff !important;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 34pt;
+}
+
+h2 {
+  font-size: 26pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+h4 {
+  font-size: 14pt;
+}
+
+thead {
+  background-color: lavender;
+  z-index: 9999 !important;
+}
+
+.mat-dialog-container {
+  overflow: hidden !important;
+  padding: 28px !important;
+}
+
+::ng-deep .cdk-overlay-backdrop {
+  backdrop-filter: blur(10px); /* Adjust blur intensity */
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust transparency */
+}
+
+
+.mat-form-field-flex {
+  background-color: #ffffff !important;
+}
+
+.section2 {
+  padding: 10px 15px 5px 15px
+}
+
+.select-custom {
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+  height: auto !important;
+  padding: auto !important;
+  font-size: 11px !important;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: 1.3 !important;
+}
+
+.select-custom:focus {
+  border-color: #80bdff;
+  outline: 0;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.select-custom:focus::-ms-value {
+  color: #495057;
+  background-color: #f2f2f2;
+}
+
+.select-custom[multiple],
+.select-custom[size]:not([size="1"]) {
+  height: auto;
+  padding-right: 0.75rem;
+  background-image: none;
+}
+
+.select-custom:disabled {
+  color: #6c757d;
+  background-color: #e9ecef;
+}
+
+.select-custom::-ms-expand {
+  display: none;
+}
+
+.select-custom:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #495057;
+}
+
+.select-custom-sm {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.1rem !important;
+  font-size: .6rem;
+  font-weight: 500;
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
+table {
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.form-group {
+  margin-bottom: 0.9rem;
+}
+
+.custom-select-lg {
+  height: calc(1.5em + 1rem + 2px);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+}
+
+.form-control {
+  height: 27px !important;
+  min-height: 27px !important;
+}
+
+input[type=text] {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+  cursor: pointer;
+  /* background-color: #f5f3f3; */
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  
+}
+
+.not-allowed-cursor {
+  cursor: not-allowed;
+}
+
+input[read-only] {
+  cursor: not-allowed;
+}
+
+input[type=text]:hover {
+  border-color: #5d87ff;
+}
+
+input[type=text]:focus {
+  /* background-color: #f5f3f3; */
+}
+
+input[type=number] {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  /* background-color: #f5f3f3; */
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+input[type=tel] {
+
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  /* background-color: #f5f3f3; */
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+input[type=password] {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  /* background-color: #f5f3f3; */
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+input[type=date] {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  /* background-color: #f5f3f3; */
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  height: 30px !important;
+}
+
+
+
+#browse {
+  padding: 3px 13px;
+  background: #5d87ff;
+  position: absolute;
+  top: 22px;
+  right: 15px;
+  border-radius: 0px 3px 3px 0px;
+  text-decoration: none;
+  color: white;
+  font-size: 11px;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+
+#view {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 4px 10px;
+  background: #5d87ff;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+input[type=file] {
+  font-size: 11px;
+  line-height: 2.3 !important;
+  padding: 0rem !important;
+  /* padding-left: 10px !important; */
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  height: 26px;
+  background: #5d87ff;
+  color: #FFFFFF;
+  line-height: auto !important;
+  padding: 0px 15px;
+  letter-spacing: 0.3px;
+  border: none;
+  float: left;
+  margin-right: 10px !important;
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  cursor: pointer;
+}
+
+table td {
+  font-size: 11px;
+}
+
+table th {
+  font-size: 11px;
+  font-weight: 500 !important;
+}
+
+table {
+  margin-bottom: 5px;
+  border-collapse: separate;
+}
+
+table th {
+  /* Apply both top and bottom borders to the <th> */
+  /* border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-right: 2px solid; */
+}
+
+table td {
+  /* For cells, apply the border to one of each side only (right but not left, bottom but not top) */
+  /* border-bottom: 2px solid;
+  border-right: 2px solid; */
+}
+
+table th:first-child,
+table td:first-child {
+  /* Apply a left border on the first <td> or <th> in a row */
+  border-left: 2px solid;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.animated {
+  -webkit-animation-duration: 200ms;
+  -moz-animation-duration: 200ms;
+  animation-duration: 200ms;
+}
+
+.mat-raised-button:hover {
+  color: black;
+  transition-duration: .9s;
+}
+
+.mat-raised-button {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 27px !important;
+  color: white !important;
+  letter-spacing: .4px;
+}
+
+.mat-flat-button {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 30px !important;
+  color: white !important;
+  letter-spacing: .4px;
+  background-color: #5c6cc3ba !important;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.4rem !important;
+  margin-left: -1.25rem;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  height: 12px !important;
+}
+
+.mat-progress-bar {
+  height: 15px !important;
+  border-radius: 3px !important;
+}
+
+.progressbar-value {
+  position: absolute;
+  padding: 0px;
+  color: white;
+  font-size: 9px !important;
+  margin-top: 1.5px;
+  margin-left: 5px;
+}
+
+.close-button {
+  float: right;
+  top: -24px;
+  right: -24px;
+  font-size: 18px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+}
+
+::ng-deep .icon-outside .close-button {
+  float: right;
+  top: -52px;
+  right: -52px;
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
+}
+
+mat-icon {
+  cursor: pointer !important;
+  font-size: 19px !important;
+  height: 20px !important;
+  width: 18px !important;
+}
+
+i {
+  font-size: 11px !important;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+th {
+  /* border: 1px solid rgb(175 175 175 / 45%) !important; */
+  padding: 7px !important;
+  background-color: #e8eaf6 !important;
+  color: #021a61 !important;
+}
+
+td {
+  /* border: 1px solid rgb(175 175 175 / 45%) !important; */
+  padding: 5px 10px !important;
+}
+
+::ng-deep.multiline-tooltip {
+  font-size: 14px;
+  white-space: pre-line !important;
+  font-family: serif;
+  background-color: rgb(88, 80, 80);
+  color: white !important;
+  letter-spacing: 0.5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+::ng-deep .p-datatable-table {
+  margin-bottom: 5px !important;
+  border-collapse: separate;
+}
+
+::ng-deep  .p-datatable-table th {
+  /* Apply both top and bottom borders to the <th> */
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+::ng-deep  .p-datatable-table td {
+  /* For cells, apply the border to one of each side only (right but not left, bottom but not top) */
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+::ng-deep  .p-datatable-table th:first-child,
+::ng-deep  .p-datatable-table td:first-child {
+  /* Apply a left border on the first <td> or <th> in a row */
+  border-left: 2px solid;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  margin-top: 70px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5d87ff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5d87ff;
+  cursor: pointer;
+}
+
+:root {
+  --mdc-filled-text-field-label-text-size: 100px;
+  --mdc-list-list-item-label-text-size: 14px;
+  --bs-body-font-size: 14px;
+  --mdc-list-list-item-one-line-container-height: 30px !important;
+}
+
+.mat-expansion-panel-header {
+  height: 40px !important;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  /* border-bottom: 2px solid #f2f2f2; */
+  height: 40px !important;
+  border-radius: revert !important;
+}
+
+.mat-expansion-panel-header-title {
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.mat-dialog-title {
+  margin: 0 0 8px !important;
+}
+
+.p-datepicker table th {
+  background: white !important;
+  border: none !important;
+  color: #575757 !important;
+  font-weight: 500 !important;
+}
+
+.p-datepicker table td {
+  padding: 0 !important;
+  border: none !important
+}
+
+.p-inputtext{
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.p-button {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+.p-datepicker table td>span {
+  width: 1.6rem !important;
+  height: 1.6rem !important;
+}
+
+.p-datepicker .p-datepicker-header{
+  padding: 0 !important;
+}
+
+.p-calendar{
+  width: 100% !important;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-title{
+  line-height: 1rem !important;
+}
+
+.p-calendar-w-btn .p-inputtext  {
+  height: 27px;
+  width: 100%;
+  font-size: 11px !important;
+  line-height: 0rem;
+  font-family: Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 400
+}
+
+.p-calendar-w-btn .p-datepicker-trigger{
+  height: 27px;
+}
+
+.p-datepicker .p-datepicker-buttonbar{
+  padding: 0 !important;
+}
+
+.p-button{
+  padding: 0.20rem 1.25rem !important;
+  font-size: 0.8em !important;
+}
+.p-button-label {
+  font-weight: 500 !important;
+}
+
+
+.p-disabled{
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  background: #e0e0e0 !important;
+}

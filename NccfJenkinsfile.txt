@@ -1,0 +1,199 @@
+properties([
+	parameters([
+	    choice(choices: ['dev-portfolio.ifelsesolutions.in','qa-portfolio.ifelsesolutions.in','qf-portfolio.ifelsesolutions.in'],
+		name: 'Select_Build'),
+		gitParameter(
+        name: 'Deploy_Branch',
+		branchFilter: 'origin/(.*)',
+		selectedValue: 'NONE',
+		sortMode: 'ASCENDING_SMART'),
+		choice(choices: ['NO', 'uat-portfolio.ifelsesolutions.in','qf-uat-portfolio.ifelsesolutions.in'],
+		name: 'Transfer_Build'),
+		choice(choices: ['portfolio'],
+		name: 'Project_Name'),
+		])
+		])
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+node{
+stage('code checkout'){
+   if (Select_Build == 'dev-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	script {
+                    git_branch = sh(returnStdout: true, script: 'mysql -sN  -h 65.1.66.179 -u ifelse_pro_portfolio -pflbraylbucricretuzawr portfolio -e "SELECT Version FROM portfolio.CI_CD_Version where deployment=\'qf\'"').trim()					
+					}
+                    if (Deploy_Branch > git_branch)
+                        {
+git branch: "${Deploy_Branch}", credentialsId: 'git_if_else', url: 'https://github.com/If-Else-Solutions/${JOB_NAME}.git'
+}
+                    else
+					Utils.markStageSkippedForConditional('code checkout')
+						}
+   else if (Select_Build == 'qa-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	script {
+                    git_branch = sh(returnStdout: true, script: 'mysql -sN -h 65.1.66.179 -u ifelse_pro_portfolio -pflbraylbucricretuzawr portfolio -e "SELECT Version FROM portfolio.CI_CD_Version where deployment=\'qf\'"').trim()
+					}
+                    if (Deploy_Branch > git_branch)
+                        {
+git branch: "${Deploy_Branch}", credentialsId: 'git_if_else', url: 'https://github.com/If-Else-Solutions/${JOB_NAME}.git'
+                        }
+                    else
+                    Utils.markStageSkippedForConditional('code checkout')
+						}
+	else if (Select_Build == 'qf-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	script {
+                    git_branch = sh(returnStdout: true, script: 'mysql -sN -h 65.1.66.179 -u ifelse_pro_portfolio -pflbraylbucricretuzawr portfolio -e "SELECT Version FROM portfolio.CI_CD_Version where deployment=\'qf\'"').trim()
+					}
+                    if (Deploy_Branch == git_branch)
+                        {
+git branch: "${Deploy_Branch}", credentialsId: 'git_if_else', url: 'https://github.com/If-Else-Solutions/${JOB_NAME}.git'
+                        }
+                    else
+					Utils.markStageSkippedForConditional('code checkout')
+						}
+else
+Utils.markStageSkippedForConditional('code checkout')
+}
+stage('NPM Install'){
+	 if (Select_Build == 'dev-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO')
+	  {
+	 if (Deploy_Branch > git_branch){
+         sh label: '', script: '''npm install --legacy-peer-deps'''
+     }
+	 else
+	 Utils.markStageSkippedForConditional('NPM Install')
+	 }
+	 else if (Select_Build == 'qa-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO')
+	  {
+	 if (Deploy_Branch > git_branch){
+         sh label: '', script: '''npm install --legacy-peer-deps'''
+     }
+	 else
+	 Utils.markStageSkippedForConditional('NPM Install')
+	 }
+	 else if (Select_Build == 'qf-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO')
+	 {
+	 if (Deploy_Branch == git_branch){
+         sh label: '', script: '''npm install --legacy-peer-deps'''
+     }
+	 else
+	 Utils.markStageSkippedForConditional('NPM Install')
+	 }
+	 else 
+Utils.markStageSkippedForConditional('NPM Install')
+}
+    stage('Build'){
+	if (Select_Build == 'dev-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	if (Deploy_Branch > git_branch){
+        sh label: '', script: '''npm run build -- --configuration=dev
+        '''
+	}
+	else
+	Utils.markStageSkippedForConditional('Build')
+	}
+  else if (Select_Build == 'qa-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	if (Deploy_Branch > git_branch){
+        sh label: '', script: '''npm run build -- --configuration=qa
+        '''
+	}
+	else
+	Utils.markStageSkippedForConditional('Build')
+	}
+    else if (Select_Build == 'qf-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+	if (Deploy_Branch == git_branch){
+        sh label: '', script: '''npm run build -- --configuration=qf
+        '''
+	}
+	else
+	Utils.markStageSkippedForConditional('Build')
+	}
+   else 
+Utils.markStageSkippedForConditional('Build')
+}
+stage('Deploying'){
+if (Select_Build == 'dev-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+if (Deploy_Branch > git_branch){
+        sh label: '', script: '''cp -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Project_Name}/* /var/www/${Select_Build}/
+		'''
+		}
+		else
+		Utils.markStageSkippedForConditional('Deploying')
+}
+else if (Select_Build == 'qa-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+if (Deploy_Branch > git_branch){
+        sh label: '', script: '''cp -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Project_Name}/* /var/www/${Select_Build}/
+		'''
+		}
+		else
+		Utils.markStageSkippedForConditional('Deploying')
+}
+else if (Select_Build == 'qf-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null' & Transfer_Build == 'NO'){
+if (Deploy_Branch == git_branch){
+        sh label: '', script: '''cp -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Project_Name}/* /var/www/${Select_Build}/
+		'''
+		}
+		else
+		Utils.markStageSkippedForConditional('Deploying')
+}
+ else 
+Utils.markStageSkippedForConditional('Deploying')
+}
+stage('Building UAT'){
+	if (Transfer_Build == 'uat-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null'){
+	script {
+                    git_branch = sh(returnStdout: true, script: 'mysql -sN -h 65.1.66.179 -u ifelse_pro_portfolio -pflbraylbucricretuzawr portfolio -e "SELECT Version FROM portfolio.CI_CD_Version where deployment=\'qf\'"').trim()
+					}
+					if (Deploy_Branch > git_branch)
+                        { sh label: '', script: '''npm run build -- --configuration=uat
+        rm -r /var/lib/jenkins/workspace/${JOB_NAME}/node_modules/
+		cd /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Project_Name}/
+zip -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Transfer_Build}.zip .*
+cd
+'''
+                        }
+                    else
+					Utils.markStageSkippedForConditional('Building UAT')
+						}
+  else if (Transfer_Build == 'qf-uat-portfolio.ifelsesolutions.in' & Deploy_Git_Branch != 'null'){
+	script {
+                    git_branch = sh(returnStdout: true, script: 'mysql -sN -h 65.1.66.179 -u ifelse_pro_portfolio -pflbraylbucricretuzawr portfolio -e "SELECT Version FROM portfolio.CI_CD_Version where deployment=\'qf\'"').trim()
+					}
+					if (Deploy_Branch == git_branch)
+                        { sh label: '', script: '''npm run build -- --configuration=uat
+        rm -r /var/lib/jenkins/workspace/${JOB_NAME}/node_modules/
+		cd /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Project_Name}/
+zip -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Transfer_Build}.zip .*
+cd
+'''
+                        }
+                    else
+					Utils.markStageSkippedForConditional('Building UAT')
+						}
+  else 
+Utils.markStageSkippedForConditional('Building UAT')
+}
+stage('Transfering Files'){
+	if (Transfer_Build != 'NO' & Deploy_Git_Branch != 'null'){
+sshPublisher(
+         publishers: [sshPublisherDesc(
+             configName: 'UAT',
+             transfers: [sshTransfer(
+                 cleanRemote: false, 
+                 excludes: '', 
+                 execCommand: '',
+                 execTimeout: 120000, 
+                 flatten: false, 
+                 makeEmptyDirs: false, 
+                 noDefaultExcludes: false, 
+                 patternSeparator: '[, ]+',
+                 remoteDirectorySDF: false, 
+                 removePrefix: 'dist/', 
+                 sourceFiles: 'dist/${Transfer_Build}.zip')], 
+                 usePromotionTimestamp: false, 
+                 useWorkspaceInPromotion: false, 
+                 verbose: true)]
+				 )
+				 sh label: '', script: 'rm -r /var/lib/jenkins/workspace/${JOB_NAME}/dist/${Transfer_Build}.zip'
+				 }
+else 
+Utils.markStageSkippedForConditional('Transfering Files')
+}
+}

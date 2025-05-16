@@ -1,0 +1,42 @@
+<body>
+
+	<section class="center" *ngIf="loginFormdisplay" [@fadeInAnimation]>
+		<div class="row" style="padding: 10%;">
+			<div class="col-md-12">
+				<div class="container text-center">
+				</div>
+				<form [formGroup]="loginForm" class="loginform">
+					<div [ngStyle]="{'border-bottom':submitted && f.username.errors ? '2px solid red' : '2 px solid #adadad' }"
+						class="txt-field">
+						<input type="text" formControlName="username" required autocomplete="off">
+						<span></span>
+						<label [ngClass]="{'text-danger': submitted && f.username.errors}">{{'Login.User Name' |
+							translate}}</label>
+					</div>
+
+					<div [ngStyle]="{'border-bottom':submitted && f.password.errors ? '2px solid red' : '2 px solid #adadad' }"
+						class="txt-field">
+						<input type="Password" formControlName="password" required>
+						<span></span>
+						<label [ngClass]="{'text-danger': submitted && f.password.errors}">{{'Login.Password' |
+							translate}}</label>
+					</div>
+					<div class="pass"><a [href]="webbaseUrl+'/registration'" target="_blank"> {{'Login.Farmer
+							Registration' | translate}}</a>
+					</div>
+					<!-- <div class="pass"><a [href]="webbaseUrl+'/pacs'" target="_blank">PACS Registration</a></div> -->
+					<div class="pass"><a (click)="forgetPassword()">{{'Login.Forgot Password ?' | translate}}</a></div>
+					<button value="Login" class="btn" (click)="login()" [disabled]="!loginForm.valid || submitted">{{'Login.Login'
+						| translate}}</button>
+					<!-- <div class="sinup_link">
+							Not a member? <a href="#" class="signup">Signup</a>
+						</div> -->
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+
+
+</body>
