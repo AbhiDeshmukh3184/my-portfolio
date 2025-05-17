@@ -17,23 +17,5 @@ export class AppComponent {
     private auth : AuthenticationService,
     public trasnlateservice: TranslateService
   ) { 
-    if(localStorage.getItem('version')){
-      if(localStorage.getItem('version') !== this.version){
-        this.auth.logout()
-        return
-      }else{
-       localStorage.setItem('version',this.version)
-      }
-    } 
-    
-    localStorage.setItem('version',this.version)
-
-    //
-    var lan = localStorage.getItem('language')
-    localStorage.setItem('language', lan || 'EN')
-
-    this.trasnlateservice.setDefaultLang(lan || 'EN')
-    this.trasnlateservice.use(lan || 'EN')
-  }    
-
+  }
 }

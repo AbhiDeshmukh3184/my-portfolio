@@ -1,0 +1,88 @@
+<section fxLayout="row mb-2" [ngClass]="statusLink ? 'navLinkDar' : 'navLinkGenis animated fadeInLeft'"
+    style="overflow: hidden;">
+    <div class="search-form">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="././../../../../assets/img/profile-pic.jpeg">
+                </div>
+                <div class="col-md-6">
+                    <h3>Full Name</h3>
+                    <p>Abhijit Dinkar Deshmukh</p>
+                    <h3>Contact</h3>
+                    <p>
+                        <a href="mailto:abhideshmukh@gmail.com"><i class="fa fa-envelope"
+                                style="font-size: 16px !important; color:#0059c7;"></i>
+                            abhideshmukh&#64;gmail.com</a> |
+                        <a href="tel:9561234040"><i class="fa fa-phone"
+                                style="font-size: 16px !important; color:#0059c7;"></i> 9561234040</a> |
+                        <a href="tel:7020663451"><i class="fa fa-phone"
+                                style="font-size: 16px !important; color:#0059c7;"></i> 7020663451</a>
+                    </p>
+
+                    <h3>Address</h3>
+                    <p>at/post: Andarsul, Tal-Yeola, Dist-Nashik (423402)</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Highest Qualification</h3>
+                    <p>Bachelor of Engineering (E&Tc)</p>
+                    <h3>Social Links</h3>
+                    <p>
+                        <a href="https://www.instagram.com/abhi_deshmukh3184" target="_blank" matTooltip="Instagram"
+                            matTooltipPosition="above">
+                            <i class="fab fa-instagram" style="font-size: 18px !important;color: red;"></i>
+                        </a> |
+                        <a href="https://www.facebook.com/Abhi Deshmukh" target="_blank" matTooltip="facebook"
+                            matTooltipPosition="above"><i class="fab fa-facebook"
+                                style="font-size: 18px !important;color: blue;"></i>
+                        </a> |
+                        <a href="https://www.linkedin.com/in/Abhijit Deshmukh" target="_blank" matTooltip="linkedin"
+                            matTooltipPosition="above">
+                            <i class="fab fa-linkedin" style="font-size: 18px !important;color: blue;"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section fxLayout="row" [ngClass]="statusLink ? 'navLinkDar' : 'navLinkGenis animated fadeInLeft'"
+    style="overflow: hidden;">
+    <div class="search-form mt-2">
+        <div class="box">
+            <div class="row mb-2">
+                <h6>About Work</h6>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <p>"I currently work at a product-based company. Previously, I was with IfElse, where I contributed
+                        to various domain-specific projects such as <a href="https://konkanmaratha.com/home" target="_blank">MATRIMONY </a>, <a href="http://kaclpl.com/home" _blank>SHIPMENT</a> platforms etc.
+                        Recently, IfElse merged with Agribid — a product-based company focused on agriculture solutions.
+                        At Agribid, I have been working on key agriculture-related projects like <a href="https://nccfindia.com/welcome" target="_blank">NCCF </a>, <a href="https://agribidindia.com/home" target="_blank">Agribid</a>, and
+                        Esamyukti."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section fxLayout="row" [ngClass]="statusLink ? 'navLinkDar' : 'navLinkGenis animated fadeInLeft'"
+    style="overflow: hidden;">
+    <div class="search-form mt-2">
+        <div class="box">
+            <div class="row mb-2">
+                <h6>Hobbies & Interests</h6>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4" *ngFor="let item of hobbies">
+                    <mat-card class="card-container">
+                        <mat-card-content>
+                            {{item.key}}
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

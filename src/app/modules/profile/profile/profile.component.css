@@ -1,0 +1,83 @@
+.box {
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px -2px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+img {
+  border-radius:10px
+}
+
+h3{
+        font-size: 1rem;
+    color: #979797;
+}
+
+p{
+    font-weight: 500;
+}
+
+mat-card{
+    background-color: #b3ffbc42;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+    padding: 27px 15px 0px 15px !important;
+    cursor: pointer;
+}
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+   
+}
+
+mat-card-title{
+    margin-top: 2px !important;
+}
+
+mat-card-content{
+    font-weight: 500;
+    font-size: 14px !important;
+    color: #080808;
+    letter-spacing: 0.5px;
+}
+
+mat-icon{
+    cursor: pointer;
+    font-size: 33px;
+    font-weight: bold;
+    color: #5d87ff !important;
+}
+
+.card-container:hover{
+    background-color: #65cf72;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.box1 {
+    border-left: 6px solid #b31c1c;
+}
+span {
+    font-weight: 500;
+    color: #939393
+}
+
+h6 {
+    color: #b31c1c;
+}
+
+.main-list {
+    list-style-type: none;
+    padding: 0
+}
+
+li {
+    padding-bottom: 5px;
+}
+
+.anchor{
+    color: blue;
+}

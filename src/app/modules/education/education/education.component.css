@@ -1,0 +1,106 @@
+.box {
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px -2px;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.box1 {
+    border-left: 6px solid #b31c1c;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #979797;
+}
+
+p {
+    font-weight: 500;
+}
+
+span {
+    font-weight: 500;
+    color: #939393
+}
+
+h6 {
+    color: #b31c1c;
+}
+
+.main-list {
+    list-style-type: none;
+    padding: 0
+}
+
+li {
+    padding-bottom: 5px;
+}
+
+.percentage {
+    background: lightgreen;
+    width: 14%;
+    padding: 3px 0px 3px 13px;
+    border-radius: 5px;
+    color: #026e24;
+    font-weight: 500;
+    top: 50%;
+    right: 37%;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    animation: colorRotate 3s linear 0s infinite;
+    animation: glow 3.5s ease-in-out infinite;
+}
+
+
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+a{
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color:blue
+}
+
+.blink-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      position: relative;
+      animation: blink 1s infinite;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .arrow {
+      font-weight: bold;
+      animation: moveArrow 0.6s infinite alternate;
+    }
+
+    @keyframes moveArrow {
+      from { transform: translateX(-6px); }
+      to { transform: translateX(0); }
+    }

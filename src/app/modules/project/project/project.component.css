@@ -1,0 +1,33 @@
+.box {
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px -2px;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.box1 {
+    border-left: 6px solid #b31c1c;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #979797;
+}
+p {
+    font-weight: 500;
+}
+
+span {
+    font-weight: 500;
+    color: #939393
+}
+
+h6 {
+    color: #b31c1c;
+}
+
+
+li {
+    padding-bottom: 5px;
+}

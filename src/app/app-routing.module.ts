@@ -7,10 +7,13 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'login' },
     { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
     {
-        path: 'procurement',
+        path: 'portfolio',
         component: FeaturesComponent,
         children: [
-                     
+            {path:"profile",loadChildren:() => import('./modules/profile/profile.module').then(m => m.ProfileModule)},     
+            {path:"education",loadChildren:() => import('./modules/education/education.module').then(m => m.EducationModule)},     
+            {path:"skill",loadChildren:() => import('./modules/skill/skill.module').then(m => m.SkillModule)},     
+            {path:"experience",loadChildren:() => import('./modules/project/project.module').then(m => m.ProjectModule)},     
         ]
     },
     
