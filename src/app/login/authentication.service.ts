@@ -5,8 +5,6 @@ import { tap, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
-import { JwtResponse } from 'src/app/models/jwt-response';
-import { JwtRequest } from 'src/app/models/jwt-request';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -24,14 +22,6 @@ export class AuthenticationService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    login(username: string, password: string): Observable<JwtResponse> {
-        let jwtRequest: JwtRequest = { eMailId: username, password: password };
-
-        return this.http.post<JwtResponse>(this.baseUrl + 'LoginAdmin/VerifyAdminLogin_V_1_0_1', jwtRequest, { withCredentials: true }).pipe(
-            tap((resp: JwtResponse) => this.setSession(resp)),
-            shareReplay()
-        );
-    }
 
     private setSession(authResult) {
         const expiresAt = authResult.expirationDate;

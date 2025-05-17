@@ -3,7 +3,6 @@ import { MediaChange, MediaObserver } from "@angular/flex-layout";
 import { Subscription } from 'rxjs';
 import { menu } from './ui/model/menu';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/models/user';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
@@ -16,7 +15,6 @@ export class FeaturesComponent implements OnDestroy {
 
     opened: boolean = true;
     mediaWatcher: Subscription;
-    currentUser: User;
     mymennu = menu;
     mainmenu: any[] = [];
     // translatedMenu: any[];
@@ -29,7 +27,6 @@ export class FeaturesComponent implements OnDestroy {
         this.mediaWatcher = this.media.media$.subscribe((mediaChange: MediaChange) => {
             this.handleMediaChange(mediaChange);
         })
-        this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'))
         this.mainmenu = menu
     }
 

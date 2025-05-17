@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { NavService } from '../service/nav.service';
 import { MatDialog } from '@angular/material/dialog';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { User } from 'src/app/models/user';
 
 @Component({
     selector: 'app-menu-list-item',
@@ -27,7 +26,6 @@ export class MenuListItemComponent implements OnInit {
     @Input() item: NavItem;
     @Input() depth: number;
     @Input() statusLink: boolean
-    currentUser: User;
 
     constructor(
         public navService: NavService,
@@ -37,7 +35,6 @@ export class MenuListItemComponent implements OnInit {
         if (this.depth === undefined) {
             this.depth = 0;
         }
-        this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'))
     }
 
     ngOnInit() {
