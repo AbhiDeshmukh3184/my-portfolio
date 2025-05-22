@@ -20,5 +20,5 @@ export let menu: NavItem[] = [
     displayName: 'Experience',
     iconName: 'engineering',
     route: 'portfolio/experience',
-  },
+  }
 ];

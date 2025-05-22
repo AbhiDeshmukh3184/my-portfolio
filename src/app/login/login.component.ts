@@ -78,23 +78,19 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     sessionStorage.removeItem('currentUser')
     sessionStorage.clear()
-    this.form = this.fb.group({
-      'username': [{ value: "abhi", disabled: true }, Validators.compose([Validators.required])],
-      'password': [{ value: "abhi", disabled: true }, Validators.compose([Validators.required])]
-    });
   }
-
-
-
-
-
 
   get f() {
     return this.loginForm.controls
   }
 
   login() {
-    this.router.navigate(['portfolio/profile'])
+    if (this.loginForm.get("username").value == "admin" && this.loginForm.get("password").value == "admin") {
+      this.authenticationService.setSession()
+    } else {
+      this.tostr.error('Invalid username or password', 'Error')
+    }
+
   }
 
   ngOnDestroy(): void {

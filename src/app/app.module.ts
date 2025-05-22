@@ -21,6 +21,7 @@ import { filter, map } from 'rxjs/operators';
 import { Daterangepicker } from 'ng2-daterangepicker';
 import { MenuListItemComponent } from './features/ui/menu-list-item/menu-list-item.component';
 import { FeaturesComponent } from './features/features.component';
+import { AuthInterceptor } from './login/auth.interceptor';
 
 
 
@@ -106,6 +107,13 @@ export function HttpLoaderFactory(http: HttpClient) {
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 
 })

@@ -5,37 +5,39 @@ import { tap, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     baseUrl = environment.Base_URL;
     currentUserSubject: any;
-    currentUser: any;
+    authToken: any;
     redirectUrl: string
     config: any;
 
     constructor(private http: HttpClient,
         private ngxUiLoaderService: NgxUiLoaderService,
-        private router: Router) {
+        private router: Router,
+        private _tostr: ToastrService) {
         this.config = this.ngxUiLoaderService.getDefaultConfig();
-        this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
     }
 
 
-    private setSession(authResult) {
-        const expiresAt = authResult.expirationDate;
-        sessionStorage.setItem('currentUser', JSON.stringify(authResult.data))
-        this.currentUserSubject.next(JSON.parse(sessionStorage.getItem('currentUser')));
+    setSession() {
+        sessionStorage.setItem('authToken', environment.token)
+        this.router.navigate(['portfolio/profile'])
+        setTimeout(() => {
+            this.logout()
+            this._tostr.warning('Please login again', 'Session expired')
+        }, 30*60*1000);
     }
 
     public get currentUserValue(): any {
-        // return this.currentUserSubject.value;
-        return JSON.parse(sessionStorage.getItem('currentUser'));
+        return JSON.parse(sessionStorage.getItem('authToken'));
     }
 
     isLoggedIn() {
-        if (sessionStorage.getItem('currentUser')) {
+        if (sessionStorage.getItem('authToken')) {
             return true;
         }
         return false;
@@ -47,46 +49,6 @@ export class AuthenticationService {
         this.router.navigate(['./login'])
     }
 
-    SendOTP(MobileNo): Observable<any> {
-        return this.http.post<any>(this.baseUrl + 'OTP/SendOTP', { "mobileNumber": MobileNo }, { observe: 'response' })
-    }
 
-    SendOTPs(MobileNo): Observable<any> {
-        return this.http.post<any>(this.baseUrl + 'OTP/SendOTP', { "mobileNumber": MobileNo }, { observe: 'response', withCredentials: true })
-    }
-
-    verifyCustomerIfexist(MobileNo): Observable<any> {
-        return this.http.get(this.baseUrl + `Aggregation/VerifyCustomerIfexist_V_1_0_1/${MobileNo}`, { withCredentials: true })
-    }
-
-    ResendOTP(MobileNo): Observable<any> {
-        return this.http.post<any>(this.baseUrl + 'OTP/ResendOTP', { "mobileNumber": MobileNo }, { observe: 'response', withCredentials: true })
-    }
-
-    VerifyOTP(obj): Observable<any> {
-        return this.http.post<any>(this.baseUrl + 'OTP/VerifyOTP', { "mobileNumber": obj.mobile, "otp": obj.otp }, { observe: 'response' })
-    }
-
-    VerifyOTPs(obj): Observable<any> {
-        return this.http.post<any>(this.baseUrl + 'OTP/VerifyOTP', { "mobileNumber": obj.mobileNumber, "otp": obj.otp }, { observe: 'response', withCredentials: true })
-    }
-
-
-    updatePassword(obj): Observable<any> {
-        return this.http.put<any>(this.baseUrl + 'LoginAdmin/ResetPassword_V_1_0_1', { "mobileNumber": obj.idAggregatorData, "password": obj.password }, { observe: 'response', withCredentials: true })
-    }
-
-    updatePasswords(obj): Observable<any> {
-        return this.http.put<any>(this.baseUrl + 'LoginAdmin/ResetPassword_V_1_0_2', obj, { observe: 'response' })
-    }
-
-    resendMOU(data): Observable<any> {
-        return this.http.put(this.baseUrl + 'Aggregation/ResendMOU', { "idAggregatorData": data })
-    }
-
-    //
-    getLanguages(): Observable<any> {
-        return this.http.get<any>(this.baseUrl + 'TranslateCode/GetAllTranslateCodes', { withCredentials: true })
-    }
 
 }

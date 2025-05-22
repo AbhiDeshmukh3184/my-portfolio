@@ -145,8 +145,8 @@ thead {
 label {
   display: inline-block;
   margin-bottom: 0.1rem !important;
-  font-size: .6rem;
-  font-weight: 500;
+  font-size: .9rem;
+  font-weight: 400;
   font-family: Roboto, Helvetica, Arial, sans-serif !important;
   letter-spacing: 0.3px;
   color: #000000;
@@ -169,12 +169,12 @@ table {
 }
 
 .form-control {
-  height: 27px !important;
-  min-height: 27px !important;
+  height: 35px !important;
+  min-height: 35px !important;
 }
 
 input[type=text] {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.3px;
   font-weight: 300;
   cursor: pointer;
